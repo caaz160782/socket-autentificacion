@@ -26,8 +26,7 @@ const login = async(req, res = response) => {
             return res.status(400).json({
                 msg: 'Usuario / Password no son correctos - estado: false'
             });
-        }
-
+        }        
         // Verificar la contraseña
         const validPassword = bcryptjs.compareSync( password, usuario.password );
         if ( !validPassword ) {
@@ -67,7 +66,7 @@ const googleSignin = async(req, res = response) => {
             // Tengo que crearlo
             const data = {
                 nombre,
-                correo,
+                email,
                 password: ':P',
                 img,
                 google: true
