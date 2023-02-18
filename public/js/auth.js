@@ -18,7 +18,12 @@ miFormulario.addEventListener('submit',ev =>{
     })
     .then(resp=> resp.json())
     .then(data =>{
-        localStorage.setItem('token',data.token);
+       if(data.usuario.estado){
+         localStorage.setItem('token',data.token);
+         window.location.href = 'chat.html';
+        }else{
+             console.log("Error en psw/user");
+        }
     })
     .catch(err=>{
         console.log(err)
