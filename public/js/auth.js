@@ -45,6 +45,7 @@ function handleCredentialResponse(response) {
     .then(resp =>{
         localStorage.setItem('token',resp.token);
         localStorage.setItem('email',resp.usuario.correo);
+        window.location.href = 'chat.html';
     })
     .catch(console.warn);
 }
